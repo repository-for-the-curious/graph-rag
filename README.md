@@ -1,5 +1,5 @@
 ---
-Repo: knowledge_hub_graphrag
+Repo: graph-rag
 CreatedAt: 2026-11
 StageTags:
   - 1.3
