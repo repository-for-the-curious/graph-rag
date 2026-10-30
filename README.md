@@ -37,11 +37,14 @@ ModuleTags:
   - 5.12
 ---
 
-# knowledge_hub_graphrag
+# graphrag
+
 GraphRAG local sobre uma base de conhecimento em Markdown: Neo4j (grafo + vetores), LangGraph, Ollama, avaliação com TruLens e traces no Langfuse. Roda localmente com Docker Compose e responde citando a nota de origem.
 
-<a id="menu"></a>
+
+
 # MENU
+
 - 🔙 [SEARCH_CONTENT](https://github.com/repository-for-the-curious/knowledge-hub/blob/main/SEARCH_CONTENT.md)
 - 📘 [Visão Geral · Overview · Überblick](#overview)
 - 🧩 [Arquitetura / Estrutura](#architecture)
@@ -51,10 +54,12 @@ GraphRAG local sobre uma base de conhecimento em Markdown: Neo4j (grafo + vetore
 
 ---
 
-<a id="overview"></a>
+
+
 ## 📘 Visão Geral · Overview · Überblick
 
 ### 🇧🇷 Português
+
 Um assistente que responde perguntas sobre os repositórios desta organização, **citando a nota de onde tirou cada informação**. Ele usa como base de conhecimento os próprios Markdown da organização e o índice semântico do [knowledge-hub](https://github.com/repository-for-the-curious/knowledge-hub), em que repositórios se ligam por tags.
 
 O problema que ele mostra: o RAG só vetorial acha trechos parecidos com a pergunta, mas não enxerga estrutura. Perguntas como *"quais repositórios usam selenium?"* ou *"o my_markdown_tool é público?"* não têm um parágrafo que as responda; a resposta está nas relações entre repositórios e tags. O modo **graph** combina a busca vetorial com essas relações, e o conjunto de avaliação mede a diferença entre os dois modos nas mesmas perguntas.
@@ -62,6 +67,7 @@ O problema que ele mostra: o RAG só vetorial acha trechos parecidos com a pergu
 Use como referência para montar GraphRAG sobre notas Markdown ou um vault Obsidian, com modelos locais (sem custo de API e sem dados saindo da máquina), avaliação reproduzível e observabilidade.
 
 ### 🇺🇸 English
+
 An assistant that answers questions about this organization's repositories, **citing the note each statement came from**. Its knowledge base is the organization's own Markdown plus the semantic index in [knowledge-hub](https://github.com/repository-for-the-curious/knowledge-hub), where repositories are linked by tags.
 
 The problem it demonstrates: vector-only RAG finds passages similar to the question but cannot see structure. Questions like *"which repositories use selenium?"* or *"is my_markdown_tool public?"* have no paragraph that answers them; the answer lives in the relations between repositories and tags. **Graph** mode combines vector search with those relations, and the eval set measures the difference between both modes on the same questions.
@@ -69,6 +75,7 @@ The problem it demonstrates: vector-only RAG finds passages similar to the quest
 Use it as a reference for GraphRAG over Markdown notes or an Obsidian vault, with local models (no API cost, no data leaving the machine), reproducible evaluation and observability.
 
 ### 🇩🇪 Deutsch
+
 Ein Assistent, der Fragen zu den Repositories dieser Organisation beantwortet und **für jede Aussage die Quellnotiz zitiert**. Als Wissensbasis dienen die Markdown-Dateien der Organisation und der semantische Index im [knowledge-hub](https://github.com/repository-for-the-curious/knowledge-hub), in dem Repositories über Tags verbunden sind.
 
 Das gezeigte Problem: Rein vektorbasiertes RAG findet ähnliche Textstellen, sieht aber keine Struktur. Fragen wie *„Welche Repositories nutzen selenium?“* oder *„Ist my_markdown_tool öffentlich?“* beantwortet kein einzelner Absatz; die Antwort steckt in den Beziehungen zwischen Repositories und Tags. Der **Graph**-Modus kombiniert Vektorsuche mit diesen Beziehungen, und das Evaluationsset misst den Unterschied beider Modi bei denselben Fragen.
@@ -79,7 +86,8 @@ Als Referenz für GraphRAG über Markdown-Notizen oder einen Obsidian-Vault, mit
 
 ---
 
-<a id="architecture"></a>
+
+
 ## 🧩 Arquitetura / Estrutura
 
 ```mermaid
@@ -162,7 +170,8 @@ O workflow `evals` do GitHub Actions roda o pipeline completo num runner CPU e f
 
 ---
 
-<a id="semantic-integration"></a>
+
+
 ## 🔗 Integração Semântica
 
 Este repositório está integrado ao **SEARCH_CONTENT.md** por meio das tags abaixo:
@@ -176,6 +185,7 @@ Este repositório está integrado ao **SEARCH_CONTENT.md** por meio das tags aba
 Tags propostas nesta contribuição (LibraryTags): `4.17` neo4j · `4.18` langgraph · `4.19` pydantic · `4.20` ollama · `4.21` trulens · `4.22` langfuse.
 
 Essas tags permitem:
+
 - navegação semântica
 - rastreabilidade de decisões
 - integração com o *knowledge-hub*
@@ -186,7 +196,8 @@ O repositório também **consome** essa integração: o grafo é construído a p
 
 ---
 
-<a id="modules"></a>
+
+
 ## 📂 Módulos / Funções
 
 | Módulo / Função | Descrição |
@@ -206,7 +217,8 @@ O repositório também **consome** essa integração: o grafo é construído a p
 
 ---
 
-<a id="references"></a>
+
+
 ## 📚 Referências
 
 - [knowledge-hub · SEARCH_CONTENT](https://github.com/repository-for-the-curious/knowledge-hub/blob/main/SEARCH_CONTENT.md) — índice semântico e árvore de tags usados como grafo
