@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "knowledge-hub-graphrag"
+version = "0.1.0"
+description = "Local GraphRAG over a Markdown knowledge base: Neo4j (graph + vectors), LangGraph, Ollama, TruLens evals and Langfuse traces."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Vinicius Matos" }]
+requires-python = ">=3.11"
+dependencies = [
+    "requests>=2.31",
+    "pyyaml>=6.0",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.3",
+    "neo4j>=5.20,<7",
+    "langgraph>=0.2",
+]
+
+[project.optional-dependencies]
+eval = ["trulens>=1.0", "trulens-providers-litellm>=1.0"]
+obs = ["langfuse>=2.50,<3"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+khg = "kh_graphrag.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

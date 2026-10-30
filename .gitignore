@@ -1,0 +1,13 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ipynb_checkpoints/
+evals/results/*
+!evals/results/.gitkeep
+default.sqlite

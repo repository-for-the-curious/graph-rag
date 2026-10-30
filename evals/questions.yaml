@@ -1,0 +1,118 @@
+# Eval set for knowledge_hub_graphrag.
+# expected_sources: full paths or fragments (a fragment matches every language version).
+# expected_keywords: lower-case substrings that a correct answer must contain.
+# kind: content (answer is in a note), catalog (answer is in the repository catalog / tags),
+#       multi-hop (needs note content + graph), negative (must answer "not found").
+
+cases:
+  - id: c01-ollama-port
+    kind: content
+    question: "Em qual porta o Ollama expõe a API HTTP no guia de containers?"
+    expected_sources: ["Journey_to_Ollama_Docker.md"]
+    expected_keywords: ["11434"]
+
+  - id: c02-ollama-amd
+    kind: content
+    question: "How do I run the Ollama container with an AMD GPU?"
+    expected_sources: ["Journey_to_Ollama_Docker.md"]
+    expected_keywords: ["rocm"]
+
+  - id: c03-ollama-endpoints
+    kind: content
+    question: "Quais endpoints da API do Ollama o guia usa para listar modelos e gerar texto?"
+    expected_sources: ["Journey_to_Ollama_Docker.md"]
+    expected_keywords: ["/api/tags", "/api/generate"]
+
+  - id: c04-git-line-endings
+    kind: content
+    question: "Qual configuração do Git evita problemas de final de linha ao usar WSL?"
+    expected_sources: ["Guia_Guia_WSL_com_Ubuntu_para_Repositorios.md"]
+    expected_keywords: ["autocrlf", "false"]
+
+  - id: c05-compose-check
+    kind: content
+    question: "Como verifico se o Docker Compose está instalado?"
+    expected_sources: ["Install_Docker.md", "Guia_instalação_Docker_e_docker_compose.md"]
+    expected_keywords: ["docker compose version"]
+
+  - id: c06-raspberry
+    kind: content
+    question: "Wie installiere ich Docker auf einem Raspberry Pi (ARM64)?"
+    expected_sources: ["Install_Docker.md"]
+    expected_keywords: ["arm64"]
+
+  - id: c07-hub-purpose
+    kind: content
+    question: "What is the purpose of the Knowledge Hub?"
+    expected_sources: ["knowledge-hub/README.md"]
+    expected_keywords: ["organiz"]
+
+  - id: c08-contribution-flow
+    kind: content
+    question: "Quais são os passos para contribuir com um novo repositório na organização?"
+    expected_sources: ["knowledge-hub/README.md"]
+    expected_keywords: ["template", "search_content"]
+
+  - id: c09-visibility-icon
+    kind: content
+    question: "O que significa o ícone 🔓 na lista de repositórios?"
+    expected_sources: ["knowledge-hub/SEARCH_CONTENT.md"]
+    expected_keywords: ["contribu"]
+
+  - id: k01-selenium
+    kind: catalog
+    question: "Quais repositórios usam a biblioteca selenium?"
+    expected_sources: ["knowledge-hub/SEARCH_CONTENT.md"]
+    expected_keywords: ["selenium_and_postgre_containers", "modules"]
+
+  - id: k02-deployment
+    kind: catalog
+    question: "Which repositories are tagged with Deployment (3.20)?"
+    expected_sources: ["knowledge-hub/SEARCH_CONTENT.md", "how_to_containers/README.md"]
+    expected_keywords: ["how_to_containers", "selenium_and_postgre_containers", "modules"]
+
+  - id: k03-webscraping
+    kind: catalog
+    question: "Quais repositórios tratam de WebScraping?"
+    expected_sources: ["knowledge-hub/SEARCH_CONTENT.md"]
+    expected_keywords: ["api_duckduckgo", "selenium_and_postgre_containers", "modules"]
+
+  - id: k04-library-tags
+    kind: catalog
+    question: "Quais tags de biblioteca (LibraryTags) o repositório how_to_containers usa?"
+    expected_sources: ["how_to_containers/README.md", "knowledge-hub/SEARCH_CONTENT.md"]
+    expected_keywords: ["requests", "jupyterlab"]
+
+  - id: k05-private
+    kind: catalog
+    question: "Is the repository my_markdown_tool public or private?"
+    expected_sources: ["knowledge-hub/SEARCH_CONTENT.md"]
+    expected_keywords: ["priv"]
+
+  - id: k06-created
+    kind: catalog
+    question: "Welche Repositories wurden im April 2026 (2026-04) erstellt?"
+    expected_sources: ["knowledge-hub/SEARCH_CONTENT.md"]
+    expected_keywords: ["docs", "modules"]
+
+  - id: m01-ollama-and-orchestration
+    kind: multi-hop
+    question: "Which repository teaches how to run Ollama in containers, and which other repositories share its Orchestration tag (3.19)?"
+    expected_sources: ["how_to_containers", "knowledge-hub/SEARCH_CONTENT.md"]
+    expected_keywords: ["how_to_containers", "docs", "modules"]
+
+  - id: m02-textual-editor
+    kind: multi-hop
+    question: "Qual repositório usa a biblioteca textual e em que estágio (StageTags) ele está?"
+    expected_sources: ["knowledge-hub/SEARCH_CONTENT.md"]
+    expected_keywords: ["my_markdown_tool", "resource"]
+
+  - id: n01-out-of-scope
+    kind: negative
+    question: "Qual é a capital da Austrália?"
+    expect_not_found: true
+
+  - id: n02-out-of-scope
+    kind: negative
+    question: "Who won the 2022 FIFA World Cup?"
+    expect_not_found: true

@@ -1,0 +1,102 @@
+# knowledge_hub_graphrag — local stack
+#   docker compose up -d                      neo4j + ollama (+ model download)
+#   docker compose run --rm app ingest        load data/corpus into Neo4j
+#   docker compose run --rm app ask "..."     ask a question
+#   docker compose run --rm app eval          vector x graph comparison
+#   docker compose --profile observability up -d   adds Langfuse on http://localhost:3000
+
+services:
+  neo4j:
+    image: neo4j:5.26-community
+    environment:
+      NEO4J_AUTH: neo4j/${KHG_NEO4J_PASSWORD:-graphrag-demo}
+      NEO4J_server_memory_heap_max__size: 1G
+    ports:
+      - "7474:7474"   # browser: http://localhost:7474
+      - "7687:7687"   # bolt
+    volumes:
+      - neo4j-data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "cypher-shell -u neo4j -p \"$${NEO4J_AUTH#neo4j/}\" 'RETURN 1' || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 20
+
+  ollama:
+    image: ollama/ollama:${OLLAMA_TAG:-latest}
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-models:/root/.ollama
+    # NVIDIA GPU: uncomment (see how_to_containers/docs/*/Journey_to_Ollama_Docker.md)
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices: [{ driver: nvidia, count: all, capabilities: [gpu] }]
+
+  ollama-models:
+    image: ollama/ollama:${OLLAMA_TAG:-latest}
+    depends_on: [ollama]
+    environment:
+      OLLAMA_HOST: ollama:11434
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - >-
+        until ollama list >/dev/null 2>&1; do sleep 2; done;
+        ollama pull ${KHG_LLM_MODEL:-qwen2.5:3b} &&
+        ollama pull ${KHG_EMBED_MODEL:-nomic-embed-text}
+    restart: "no"
+
+  app:
+    build: .
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      KHG_NEO4J_URI: bolt://neo4j:7687
+      KHG_OLLAMA_URL: http://ollama:11434
+      KHG_LANGFUSE_HOST: ${KHG_LANGFUSE_HOST_INTERNAL:-http://langfuse:3000}
+    volumes:
+      - ./data:/app/data
+      - ./evals:/app/evals
+    depends_on:
+      neo4j:
+        condition: service_healthy
+      ollama-models:
+        condition: service_completed_successfully
+    profiles: ["cli"]
+
+  # ---- optional: self-hosted Langfuse v2 (traces + eval scores) ----------------
+  langfuse-db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: langfuse
+      POSTGRES_PASSWORD: langfuse
+      POSTGRES_DB: langfuse
+    volumes:
+      - langfuse-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U langfuse"]
+      interval: 5s
+      retries: 20
+    profiles: ["observability"]
+
+  langfuse:
+    image: langfuse/langfuse:2
+    depends_on:
+      langfuse-db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://langfuse:langfuse@langfuse-db:5432/langfuse
+      NEXTAUTH_URL: http://localhost:3000
+      NEXTAUTH_SECRET: ${LANGFUSE_NEXTAUTH_SECRET:-change-me-local-only}
+      SALT: ${LANGFUSE_SALT:-change-me-local-only}
+      TELEMETRY_ENABLED: "false"
+    ports:
+      - "3000:3000"
+    profiles: ["observability"]
+
+volumes:
+  neo4j-data:
+  ollama-models:
+  langfuse-db:
