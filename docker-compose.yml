@@ -24,6 +24,8 @@ services:
 
   ollama:
     image: ollama/ollama:${OLLAMA_TAG:-latest}
+    environment:
+      OLLAMA_CONTEXT_LENGTH: "8192"
     ports:
       - "11434:11434"
     volumes:
