@@ -8,7 +8,5 @@ build/
 dist/
 .pytest_cache/
 .ipynb_checkpoints/
-evals/results/*
-!evals/results/.gitkeep
 default.sqlite
 *:Zone.Identifier

@@ -1,0 +1,514 @@
+{
+  "meta": {
+    "generated_at": "2026-10-30 23:01 UTC",
+    "llm_model": "qwen2.5:3b",
+    "embed_model": "nomic-embed-text",
+    "judge": null
+  },
+  "summary": {
+    "vector": {
+      "source_hit": 0.316,
+      "keyword_recall": 0.176,
+      "groundedness": null,
+      "answer_relevance": null,
+      "context_relevance": null,
+      "latency_s": 78.135
+    },
+    "graph": {
+      "source_hit": 0.474,
+      "keyword_recall": 0.353,
+      "groundedness": null,
+      "answer_relevance": null,
+      "context_relevance": null,
+      "latency_s": 153.399
+    }
+  },
+  "rows": [
+    {
+      "case_id": "c01-ollama-port",
+      "kind": "content",
+      "mode": "vector",
+      "question": "Em qual porta o Ollama expõe a API HTTP no guia de containers?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 0.0,
+      "keyword_recall": 0.0,
+      "latency_s": 130.961,
+      "judge": {}
+    },
+    {
+      "case_id": "c01-ollama-port",
+      "kind": "content",
+      "mode": "graph",
+      "question": "Em qual porta o Ollama expõe a API HTTP no guia de containers?",
+      "answer": "[2] Ollama expõe a API HTTP na porta 11434.",
+      "cited": [
+        "how_to_containers/README.md"
+      ],
+      "source_hit": 0.0,
+      "keyword_recall": 1.0,
+      "latency_s": 141.589,
+      "judge": {}
+    },
+    {
+      "case_id": "c02-ollama-amd",
+      "kind": "content",
+      "mode": "vector",
+      "question": "How do I run the Ollama container with an AMD GPU?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 0.0,
+      "keyword_recall": 0.0,
+      "latency_s": 72.728,
+      "judge": {}
+    },
+    {
+      "case_id": "c02-ollama-amd",
+      "kind": "content",
+      "mode": "graph",
+      "question": "How do I run the Ollama container with an AMD GPU?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 0.0,
+      "keyword_recall": 0.0,
+      "latency_s": 154.947,
+      "judge": {}
+    },
+    {
+      "case_id": "c03-ollama-endpoints",
+      "kind": "content",
+      "mode": "vector",
+      "question": "Quais endpoints da API do Ollama o guia usa para listar modelos e gerar texto?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 0.0,
+      "keyword_recall": 0.0,
+      "latency_s": 42.392,
+      "judge": {}
+    },
+    {
+      "case_id": "c03-ollama-endpoints",
+      "kind": "content",
+      "mode": "graph",
+      "question": "Quais endpoints da API do Ollama o guia usa para listar modelos e gerar texto?",
+      "answer": "[2] e [3]",
+      "cited": [
+        "how_to_containers/README.md",
+        "how_to_containers/docs/pt/Journey_to_Ollama_Docker.md"
+      ],
+      "source_hit": 1.0,
+      "keyword_recall": 0.0,
+      "latency_s": 90.413,
+      "judge": {}
+    },
+    {
+      "case_id": "c04-git-line-endings",
+      "kind": "content",
+      "mode": "vector",
+      "question": "Qual configuração do Git evita problemas de final de linha ao usar WSL?",
+      "answer": "git config --global core.autocrlf false\ngit config --global core.eol lf [1]",
+      "cited": [
+        "how_to_containers/docs/pt/Guia_Guia_WSL_com_Ubuntu_para_Repositorios.md"
+      ],
+      "source_hit": 1.0,
+      "keyword_recall": 1.0,
+      "latency_s": 61.768,
+      "judge": {}
+    },
+    {
+      "case_id": "c04-git-line-endings",
+      "kind": "content",
+      "mode": "graph",
+      "question": "Qual configuração do Git evita problemas de final de linha ao usar WSL?",
+      "answer": "git config --global core.autocrlf false\ngit config --global core.eol lf [2]",
+      "cited": [
+        "how_to_containers/docs/pt/Guia_Guia_WSL_com_Ubuntu_para_Repositorios.md"
+      ],
+      "source_hit": 1.0,
+      "keyword_recall": 1.0,
+      "latency_s": 195.606,
+      "judge": {}
+    },
+    {
+      "case_id": "c05-compose-check",
+      "kind": "content",
+      "mode": "vector",
+      "question": "Como verifico se o Docker Compose está instalado?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 0.0,
+      "keyword_recall": 0.0,
+      "latency_s": 88.472,
+      "judge": {}
+    },
+    {
+      "case_id": "c05-compose-check",
+      "kind": "content",
+      "mode": "graph",
+      "question": "Como verifico se o Docker Compose está instalado?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 0.0,
+      "keyword_recall": 0.0,
+      "latency_s": 172.532,
+      "judge": {}
+    },
+    {
+      "case_id": "c06-raspberry",
+      "kind": "content",
+      "mode": "vector",
+      "question": "Wie installiere ich Docker auf einem Raspberry Pi (ARM64)?",
+      "answer": "[1] [2] [3]\n\nFür Ubuntu/Debian:\n\n```bash\n# 1. System aktualisieren\nsudo apt update && sudo apt upgrade -y\n\n# 2. Abhängigkeiten installieren\nsudo apt install -y \\\n    apt-transport-https \\\n    ca-certificates \\\n    curl \\\n    gnupg \\\n    lsb-release\n\n# 3. Docker-Repository hinzufügen (ARM64)\ncurl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg\n\necho \\\n  \"deb [arch=arm64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \\\n  $(lsb_release -cs) stable\" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null\n\n# 4. Docker installieren\nsudo apt update\nsudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin\n\n# 5. Benutzer zur Gruppe docker hinzufügen\nsudo usermod -aG docker $USER\n\n# 6. Docker starten und aktivieren\nsudo systemctl start docker\nsudo systemctl enable docker\n\n# 7. Installation prüfen\ndocker --version\ndocker compose version\n```\n\nFür CentOS/RHEL/Fedora:\n\n```bash\n# 1. System aktualisieren\nsudo apt update && sudo apt upgrade -y\n\n# 2. Abhängigkeiten installieren\nsudo apt install -y \\\n    apt-transport-https \\\n    ca-certificates \\\n    curl \\\n    gnupg \\\n    lsb-release\n\n# 3. Docker-Repository (ARM64)\ncurl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg\n\necho \\\n  \"deb [arch=arm64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \\\n  $(lsb_release -cs) stable\" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null\n\n# 4. Docker installieren\nsudo apt update\nsudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin\n\n# 5. Benutzer zur Gruppe docker hinzufügen\nsudo usermod -aG docker $USER\n\n# 6. Docker starten und aktivieren\nsudo systemctl start docker\nsudo systemctl enable docker\n\n# 7. Installation prüfen\ndocker --version\ndocker compose version\n```",
+      "cited": [
+        "how_to_containers/docs/de/Guia_instala├º├úo_Docker_e_docker_compose.md",
+        "how_to_containers/docs/de/Install_Docker.md",
+        "how_to_containers/docs/pt/Guia_instala├º├úo_Docker_e_docker_compose.md"
+      ],
+      "source_hit": 1.0,
+      "keyword_recall": 1.0,
+      "latency_s": 171.128,
+      "judge": {}
+    },
+    {
+      "case_id": "c06-raspberry",
+      "kind": "content",
+      "mode": "graph",
+      "question": "Wie installiere ich Docker auf einem Raspberry Pi (ARM64)?",
+      "answer": "[2] zeigt die Schritte zur Installation von Docker auf einem ARM64-Raspberry Pi unter Linux (Ubuntu/Debian).",
+      "cited": [
+        "how_to_containers/docs/de/Guia_instala├º├úo_Docker_e_docker_compose.md"
+      ],
+      "source_hit": 0.0,
+      "keyword_recall": 1.0,
+      "latency_s": 177.54,
+      "judge": {}
+    },
+    {
+      "case_id": "c07-hub-purpose",
+      "kind": "content",
+      "mode": "vector",
+      "question": "What is the purpose of the Knowledge Hub?",
+      "answer": "The purpose of the Knowledge Hub is to organize, connect, and make reusable technical knowledge accumulated over time. Its focus is on why it was built, how it was built, and under which contexts solutions work or fail. [3]",
+      "cited": [
+        "knowledge-hub/README.md"
+      ],
+      "source_hit": 1.0,
+      "keyword_recall": 1.0,
+      "latency_s": 76.895,
+      "judge": {}
+    },
+    {
+      "case_id": "c07-hub-purpose",
+      "kind": "content",
+      "mode": "graph",
+      "question": "What is the purpose of the Knowledge Hub?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 0.0,
+      "keyword_recall": 0.0,
+      "latency_s": 172.608,
+      "judge": {}
+    },
+    {
+      "case_id": "c08-contribution-flow",
+      "kind": "content",
+      "mode": "vector",
+      "question": "Quais são os passos para contribuir com um novo repositório na organização?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 0.0,
+      "keyword_recall": 0.0,
+      "latency_s": 83.926,
+      "judge": {}
+    },
+    {
+      "case_id": "c08-contribution-flow",
+      "kind": "content",
+      "mode": "graph",
+      "question": "Quais são os passos para contribuir com um novo repositório na organização?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 0.0,
+      "keyword_recall": 0.0,
+      "latency_s": 186.324,
+      "judge": {}
+    },
+    {
+      "case_id": "c09-visibility-icon",
+      "kind": "content",
+      "mode": "vector",
+      "question": "O que significa o ícone 🔓 na lista de repositórios?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 0.0,
+      "keyword_recall": 0.0,
+      "latency_s": 44.292,
+      "judge": {}
+    },
+    {
+      "case_id": "c09-visibility-icon",
+      "kind": "content",
+      "mode": "graph",
+      "question": "O que significa o ícone 🔓 na lista de repositórios?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 0.0,
+      "keyword_recall": 0.0,
+      "latency_s": 139.241,
+      "judge": {}
+    },
+    {
+      "case_id": "k01-selenium",
+      "kind": "catalog",
+      "mode": "vector",
+      "question": "Quais repositórios usam a biblioteca selenium?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 0.0,
+      "keyword_recall": 0.0,
+      "latency_s": 71.406,
+      "judge": {}
+    },
+    {
+      "case_id": "k01-selenium",
+      "kind": "catalog",
+      "mode": "graph",
+      "question": "Quais repositórios usam a biblioteca selenium?",
+      "answer": "[1] menciona que os módulos `MODULES` e `selenium_and_postgre_containers` usam a biblioteca Selenium (versão 4.4).",
+      "cited": [
+        "knowledge-hub/SEARCH_CONTENT.md"
+      ],
+      "source_hit": 1.0,
+      "keyword_recall": 1.0,
+      "latency_s": 159.848,
+      "judge": {}
+    },
+    {
+      "case_id": "k02-deployment",
+      "kind": "catalog",
+      "mode": "vector",
+      "question": "Which repositories are tagged with Deployment (3.20)?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 0.0,
+      "keyword_recall": 0.0,
+      "latency_s": 55.874,
+      "judge": {}
+    },
+    {
+      "case_id": "k02-deployment",
+      "kind": "catalog",
+      "mode": "graph",
+      "question": "Which repositories are tagged with Deployment (3.20)?",
+      "answer": "[1]",
+      "cited": [
+        "knowledge-hub/SEARCH_CONTENT.md"
+      ],
+      "source_hit": 1.0,
+      "keyword_recall": 0.0,
+      "latency_s": 115.994,
+      "judge": {}
+    },
+    {
+      "case_id": "k03-webscraping",
+      "kind": "catalog",
+      "mode": "vector",
+      "question": "Quais repositórios tratam de WebScraping?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 0.0,
+      "keyword_recall": 0.0,
+      "latency_s": 85.352,
+      "judge": {}
+    },
+    {
+      "case_id": "k03-webscraping",
+      "kind": "catalog",
+      "mode": "graph",
+      "question": "Quais repositórios tratam de WebScraping?",
+      "answer": "[1] (knowledge-hub/SEARCH_CONTENT.md — Tag 3.23) menciona repositories tagged 3.23 WebScraping (TopicTags): api_duckduckgo, selenium_and_postgre_containers",
+      "cited": [
+        "knowledge-hub/SEARCH_CONTENT.md"
+      ],
+      "source_hit": 1.0,
+      "keyword_recall": 0.667,
+      "latency_s": 168.664,
+      "judge": {}
+    },
+    {
+      "case_id": "k04-library-tags",
+      "kind": "catalog",
+      "mode": "vector",
+      "question": "Quais tags de biblioteca (LibraryTags) o repositório how_to_containers usa?",
+      "answer": "4.5, 4.9 [2]",
+      "cited": [
+        "knowledge-hub/SEARCH_CONTENT.md"
+      ],
+      "source_hit": 1.0,
+      "keyword_recall": 0.0,
+      "latency_s": 140.109,
+      "judge": {}
+    },
+    {
+      "case_id": "k04-library-tags",
+      "kind": "catalog",
+      "mode": "graph",
+      "question": "Quais tags de biblioteca (LibraryTags) o repositório how_to_containers usa?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 0.0,
+      "keyword_recall": 0.0,
+      "latency_s": 190.965,
+      "judge": {}
+    },
+    {
+      "case_id": "k05-private",
+      "kind": "catalog",
+      "mode": "vector",
+      "question": "Is the repository my_markdown_tool public or private?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 0.0,
+      "keyword_recall": 0.0,
+      "latency_s": 80.62,
+      "judge": {}
+    },
+    {
+      "case_id": "k05-private",
+      "kind": "catalog",
+      "mode": "graph",
+      "question": "Is the repository my_markdown_tool public or private?",
+      "answer": "[1] Repository my_markdown_tool | 🔒 private | CreatedAt 2026-03",
+      "cited": [
+        "knowledge-hub/SEARCH_CONTENT.md"
+      ],
+      "source_hit": 1.0,
+      "keyword_recall": 1.0,
+      "latency_s": 158.428,
+      "judge": {}
+    },
+    {
+      "case_id": "k06-created",
+      "kind": "catalog",
+      "mode": "vector",
+      "question": "Welche Repositories wurden im April 2026 (2026-04) erstellt?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 0.0,
+      "keyword_recall": 0.0,
+      "latency_s": 58.555,
+      "judge": {}
+    },
+    {
+      "case_id": "k06-created",
+      "kind": "catalog",
+      "mode": "graph",
+      "question": "Welche Repositories wurden im April 2026 (2026-04) erstellt?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 0.0,
+      "keyword_recall": 0.0,
+      "latency_s": 160.161,
+      "judge": {}
+    },
+    {
+      "case_id": "m01-ollama-and-orchestration",
+      "kind": "multi-hop",
+      "mode": "vector",
+      "question": "Which repository teaches how to run Ollama in containers, and which other repositories share its Orchestration tag (3.19)?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 0.0,
+      "keyword_recall": 0.0,
+      "latency_s": 52.904,
+      "judge": {}
+    },
+    {
+      "case_id": "m01-ollama-and-orchestration",
+      "kind": "multi-hop",
+      "mode": "graph",
+      "question": "Which repository teaches how to run Ollama in containers, and which other repositories share its Orchestration tag (3.19)?",
+      "answer": "[7] (how_to_containers) teaches how to run Ollama in containers.\n\nRepositories sharing the same Orchestration tag (3.19): [7] (how_to_containers), [5] (Journey to Ollama Docker — No GPU, no problem).",
+      "cited": [
+        "knowledge-hub/SEARCH_CONTENT.md",
+        "how_to_containers/docs/en/Journey_to_Ollama_Docker.md"
+      ],
+      "source_hit": 1.0,
+      "keyword_recall": 0.333,
+      "latency_s": 162.908,
+      "judge": {}
+    },
+    {
+      "case_id": "m02-textual-editor",
+      "kind": "multi-hop",
+      "mode": "vector",
+      "question": "Qual repositório usa a biblioteca textual e em que estágio (StageTags) ele está?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 0.0,
+      "keyword_recall": 0.0,
+      "latency_s": 72.518,
+      "judge": {}
+    },
+    {
+      "case_id": "m02-textual-editor",
+      "kind": "multi-hop",
+      "mode": "graph",
+      "question": "Qual repositório usa a biblioteca textual e em que estágio (StageTags) ele está?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 0.0,
+      "keyword_recall": 0.0,
+      "latency_s": 167.614,
+      "judge": {}
+    },
+    {
+      "case_id": "n01-out-of-scope",
+      "kind": "negative",
+      "mode": "vector",
+      "question": "Qual é a capital da Austrália?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 1.0,
+      "keyword_recall": null,
+      "latency_s": 38.389,
+      "judge": {}
+    },
+    {
+      "case_id": "n01-out-of-scope",
+      "kind": "negative",
+      "mode": "graph",
+      "question": "Qual é a capital da Austrália?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 1.0,
+      "keyword_recall": null,
+      "latency_s": 109.434,
+      "judge": {}
+    },
+    {
+      "case_id": "n02-out-of-scope",
+      "kind": "negative",
+      "mode": "vector",
+      "question": "Who won the 2022 FIFA World Cup?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 1.0,
+      "keyword_recall": null,
+      "latency_s": 56.281,
+      "judge": {}
+    },
+    {
+      "case_id": "n02-out-of-scope",
+      "kind": "negative",
+      "mode": "graph",
+      "question": "Who won the 2022 FIFA World Cup?",
+      "answer": "Não encontrei isso nas notas. · Not found in the notes. · Nicht in den Notizen gefunden.",
+      "cited": [],
+      "source_hit": 1.0,
+      "keyword_recall": null,
+      "latency_s": 89.763,
+      "judge": {}
+    }
+  ]
+}
